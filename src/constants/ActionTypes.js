@@ -1,0 +1,1 @@
+export const GET_POST_BY_LINK = 'GET_POST_BY_LINK';

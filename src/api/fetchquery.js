@@ -1,0 +1,1 @@
+export const getCounties = () => fetch("https://restcountries.eu/rest/v2/all");
