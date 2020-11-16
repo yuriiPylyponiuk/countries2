@@ -1,5 +1,8 @@
 import { 
-  GET_POST_BY_LINK
+  GET_POST_BY_LINK,
+  GET_POST_BY_SUCCESS,
+  GET_POST_BY_ERROR,
+  HIDE_ALL_COUNTRIES
 } from '../constants/ActionTypes';
 import {
   getCounties
@@ -13,13 +16,23 @@ const getCountry = async dispatch => {
   try {
       const response = await getCounties();
       const res = await response.json();
-      dispatch({ type: GET_POST_BY_LINK, payload: res });
+      dispatch({ type: GET_POST_BY_SUCCESS, payload: res });
   } catch (e) {
-      dispatch({ type: GET_POST_BY_LINK, payload: e });
+      dispatch({ type: GET_POST_BY_ERROR, payload: e });
   }
 };
+const hideCountry = async dispatch => {
+  dispatch({ type:  HIDE_ALL_COUNTRIES });
+};
+
+
+
 
 
 export const getCountryFunc = dispatch => {
   return () => getCountry(dispatch);
 }
+export const hideCountryFunc = dispatch => {
+  return () => hideCountry(dispatch);
+}
+

@@ -1,0 +1,15 @@
+li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7%;;
+}
+
+li a {
+  display: block;
+  width: 100px;
+  height: 50px;
+}
+li img{
+  width: 100%;
+}
