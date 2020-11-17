@@ -5,8 +5,9 @@ import  { v4 as uuidv4 } from 'uuid';
 class CounrtiesList extends React.Component{
   constructor(props){
     super(props);
-    this.showCountries = this.showCountries.bind(this)
-    this.createMilionPeople = this.createMilionPeople.bind(this)
+    this.showCountries = this.showCountries.bind(this);
+    this.createMilionPeople = this.createMilionPeople.bind(this);
+    this.createCapital = this.createCapital.bind(this);
   };
   
   createMilionPeople(item){
@@ -18,12 +19,18 @@ class CounrtiesList extends React.Component{
     number = number - units;
     thousands = number%(SPLIT*SPLIT);
     number = number - thousands;
-    console.log(number)
-    console.log(thousands)
-    console.log(units)
-    
-
     return (number , units)
+  }
+  createCapital(item){
+    if(Array.isArray(item.capital)){
+      return 'More than 1 capital'
+    }else{
+      if(item.capital){
+        return item.capital
+      }else{
+        return 'Country havent capitel'
+      }
+    }
   }
 
   showCountries(){
@@ -34,6 +41,7 @@ class CounrtiesList extends React.Component{
             <li key = {uuidv4()}>
               <div>
                 <h3>{item.name}</h3>
+                <p>Capital: {this.createCapital(item)}</p>
                 <p>Population: {this.createMilionPeople(item)}</p>
               </div>
               <a href=""><img src={item.flag} alt=""/></a>
@@ -46,12 +54,14 @@ class CounrtiesList extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className='countries-list-main'>
         { this.props.countiesList.counrties.show ? 
-          <button onClick={this.props.hideCountry}>Hide Countries</button>:
-          <button onClick={this.props.getCountry}>Show Countries</button>
+          <button onClick={this.props.hideCountry} className='countries-list-main-btn'>Hide Countries</button>:
+          <button onClick={this.props.getCountry} className='countries-list-main-btn'>Show Countries</button>
         }
-        {this.showCountries()}  
+        <ul>
+          {this.showCountries()}  
+        </ul>
       </div>
     )
   }

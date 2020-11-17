@@ -10,12 +10,12 @@ function App() {
       <Link to={"/"} className='app-btn-main btn' >Home</Link>
 
       <Switch>
-          <Route exact path="/" >
-            <Home />
-          </Route>
-          <Route exact path="/countries">
-            <CountryContainer />
-          </Route>
+        <Route exact path="/" >
+          <Home />
+        </Route>
+        <Route exact path="/countries">
+          <CountryContainer />
+        </Route>
       </Switch>
     </div>
   );

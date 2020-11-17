@@ -5,13 +5,13 @@ import CounrtiesList from '../components/CounrtiesList/CounrtiesList';
 import { countiesList } from '../reducers';
 
 
-
 const CountryContainer = ({ hideCountry,countiesList, getCountry }) => (
   <CounrtiesList
       countiesList={countiesList}
       getCountry={getCountry}
       hideCountry={hideCountry}
   />
+
 )
 const mapStateToProps= (state) => ({
   countiesList: state.countiesList
@@ -27,3 +27,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CountryContainer);
+
