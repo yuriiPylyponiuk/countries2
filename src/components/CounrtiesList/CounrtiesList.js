@@ -27,9 +27,7 @@ class CounrtiesList extends React.Component{
   }
 
   showCountries(){
-    if(this.props.countiesList.counrties.data){
-      console.log(123)
-      console.log(this.props.countiesList.counrties.data)
+    if(this.props.countiesList.counrties.show && this.props.countiesList.counrties.data){
       return(
         this.props.countiesList.counrties.data.map( item => {
           return(

@@ -50,7 +50,7 @@ const countiesList = (state = initialState, action) => {
       return{
         ...state,
         counrties: {
-          data: [],
+          data: state.counrties.data,
           loaded: false,
           error: false,
           show: false
