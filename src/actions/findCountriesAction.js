@@ -6,18 +6,15 @@ import {
 } from '../constants/ActionTypes';
 
 
-import { countiesList } from '../reducers';
-
 export function sendFindingTextFunc(data){
   return{ type: SEND_FINDING_TEXT, payload: data}
 }
-let getCounties = () => fetch("https://restcountries.eu/rest/v2/all")
+let getCounties = (data) => fetch(data)
 
 const getNewCountry = async (dispatch, data) => {
-  console.log(data)
   dispatch({ type:  FIND_COUNTRY_LINK });
   try {
-      const response = await getCounties();
+      const response = await getCounties(data);
       const res = await response.json();
       dispatch({ type: FIND_COUNTRY_SUCCESS, payload: res });
   } catch (e) {
@@ -26,15 +23,5 @@ const getNewCountry = async (dispatch, data) => {
 };
 
 export const getNewCountryFunc = (dispatch, data) => {
-  return () => getNewCountry(dispatch, data);
+  return (data) => getNewCountry(data, dispatch);
 }
-
-//export function getNewCountryFunc(data){
-//   console.log(data)
-//   fetch(data)
-//       .then(response => response.json())
-//       .then(data => {
-//         return{ type: SEND_FINDING_TEXT, payload: data}
-//         })
-  
-// }
