@@ -1,6 +1,7 @@
 import React from 'react';
 import './countriesList.css';
 import  { v4 as uuidv4 } from 'uuid';
+import FindCountryContainer from '../../containers/FindContainer';
 
 class CounrtiesList extends React.Component{
   constructor(props){
@@ -11,15 +12,29 @@ class CounrtiesList extends React.Component{
   };
   
   createMilionPeople(item){
-    const SPLIT = 1000;
+    const MILIONNUM = 1000000;
+    const THOUSANDNUM = 1000;
     let number = item.population;
-    let units, thousands, milions;
+    let thousands, milions;
+    let milStr='', thouStr='';
 
-    units = number%SPLIT;
-    number = number - units;
-    thousands = number%(SPLIT*SPLIT);
-    number = number - thousands;
-    return (number , units)
+    milions= number/MILIONNUM;
+    milions= +milions.toFixed();
+    if(milions> 0){
+      milStr = ` ${milions}mln. `
+    }
+
+    number = number % MILIONNUM;
+    thousands = number/THOUSANDNUM;
+    thousands= +thousands.toFixed();
+    if(thousands> 0){
+      thouStr = ` ${thousands}thous. `;
+    }
+    
+    number = number % THOUSANDNUM;
+
+    let finalStr = milStr+thouStr+number
+    return ( <span>{finalStr}</span> )
   }
   createCapital(item){
     if(Array.isArray(item.capital)){
@@ -63,6 +78,7 @@ class CounrtiesList extends React.Component{
           <button onClick={this.props.hideCountry} className='btn countries-list-main-btn'>Hide Countries</button>:
           <button onClick={this.props.showCountry} className='btn countries-list-main-btn'>Show Countries</button>
         }
+        <FindCountryContainer />
         <ul className='countries-list-main-ul'>
           {this.showCountries()}  
         </ul>

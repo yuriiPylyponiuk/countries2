@@ -3,7 +3,7 @@ import {
   GET_POST_BY_SUCCESS,
   GET_POST_BY_ERROR,
   HIDE_ALL_COUNTRIES,
-  SHOW_ALL_COUNTRIES
+  SHOW_ALL_COUNTRIES,
 } from '../constants/ActionTypes';
 import {
   getCounties
@@ -31,6 +31,7 @@ const hideCountry = async dispatch => {
 const showCountry = async dispatch => {
   dispatch({ type:  SHOW_ALL_COUNTRIES });
 };
+
 
 
 
