@@ -21,14 +21,14 @@ class CounrtiesList extends React.Component{
     milions= number/MILIONNUM;
     milions= +milions.toFixed();
     if(milions> 0){
-      milStr = ` ${milions}mln. `
+      milStr = ` ${milions},`
     }
 
     number = number % MILIONNUM;
     thousands = number/THOUSANDNUM;
     thousands= +thousands.toFixed();
     if(thousands> 0){
-      thouStr = ` ${thousands}thous. `;
+      thouStr = `${thousands},`;
     }
     
     number = number % THOUSANDNUM;
