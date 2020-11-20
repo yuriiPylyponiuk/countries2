@@ -33,18 +33,22 @@ class CounrtiesList extends React.Component{
     }
   }
 
+  componentDidMount(){
+    this.props.getCountry()
+  }
+
   showCountries(){
     if(this.props.countiesList.counrties.show && this.props.countiesList.counrties.data){
       return(
         this.props.countiesList.counrties.data.map( item => {
           return(
-            <li key = {uuidv4()}>
-              <div>
+            <li key = {uuidv4()} className='countries-list-main-ul-li'>
+              <div className='countries-list-main-ul-li-info'>
                 <h3>{item.name}</h3>
                 <p>Capital: {this.createCapital(item)}</p>
                 <p>Population: {this.createMilionPeople(item)}</p>
               </div>
-              <a href=""><img src={item.flag} alt=""/></a>
+              <a href="" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
             </li>
           )
         })
@@ -56,10 +60,10 @@ class CounrtiesList extends React.Component{
     return(
       <div className='countries-list-main'>
         { this.props.countiesList.counrties.show ? 
-          <button onClick={this.props.hideCountry} className='countries-list-main-btn'>Hide Countries</button>:
-          <button onClick={this.props.getCountry} className='countries-list-main-btn'>Show Countries</button>
+          <button onClick={this.props.hideCountry} className='btn countries-list-main-btn'>Hide Countries</button>:
+          <button onClick={this.props.showCountry} className='btn countries-list-main-btn'>Show Countries</button>
         }
-        <ul>
+        <ul className='countries-list-main-ul'>
           {this.showCountries()}  
         </ul>
       </div>

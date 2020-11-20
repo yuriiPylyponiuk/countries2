@@ -2,7 +2,8 @@ import {
   GET_POST_BY_LINK,
   GET_POST_BY_SUCCESS,
   GET_POST_BY_ERROR,
-  HIDE_ALL_COUNTRIES
+  HIDE_ALL_COUNTRIES,
+  SHOW_ALL_COUNTRIES
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -54,6 +55,16 @@ const countiesList = (state = initialState, action) => {
           loaded: false,
           error: false,
           show: false
+        }
+      }
+    case  SHOW_ALL_COUNTRIES:
+      return{
+        ...state,
+        counrties: {
+          data: state.counrties.data,
+          loaded: false,
+          error: false,
+          show: true
         }
       }
     default: 

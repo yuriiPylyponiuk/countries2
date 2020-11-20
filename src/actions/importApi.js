@@ -2,7 +2,8 @@ import {
   GET_POST_BY_LINK,
   GET_POST_BY_SUCCESS,
   GET_POST_BY_ERROR,
-  HIDE_ALL_COUNTRIES
+  HIDE_ALL_COUNTRIES,
+  SHOW_ALL_COUNTRIES
 } from '../constants/ActionTypes';
 import {
   getCounties
@@ -21,8 +22,14 @@ const getCountry = async dispatch => {
       dispatch({ type: GET_POST_BY_ERROR, payload: e });
   }
 };
+
+
+
 const hideCountry = async dispatch => {
   dispatch({ type:  HIDE_ALL_COUNTRIES });
+};
+const showCountry = async dispatch => {
+  dispatch({ type:  SHOW_ALL_COUNTRIES });
 };
 
 
@@ -34,5 +41,8 @@ export const getCountryFunc = dispatch => {
 }
 export const hideCountryFunc = dispatch => {
   return () => hideCountry(dispatch);
+}
+export const showCountryFunc = dispatch => {
+  return () => showCountry(dispatch);
 }
 
