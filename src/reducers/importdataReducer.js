@@ -11,7 +11,7 @@ import {
 } from '../constants/ActionTypes'
 
 const initialState = {
-  counrties: {
+  countries: {
     data: [],
     loaded: false,
     error: false,
@@ -20,12 +20,12 @@ const initialState = {
   findingData: ''
 }
 
-const countiesList = (state = initialState, action) => {
+const countriesList = (state = initialState, action) => {
   switch (action.type) {
     case GET_POST_BY_LINK:
       return{
         ...state,
-        counrties: {
+        countries: {
           data: false,
           loaded: true,
           error: false,
@@ -35,7 +35,7 @@ const countiesList = (state = initialState, action) => {
     case GET_POST_BY_SUCCESS:
       return{
         ...state,
-        counrties: {
+        countries: {
           data: action.payload,
           loaded: false,
           error: false,
@@ -45,7 +45,7 @@ const countiesList = (state = initialState, action) => {
     case GET_POST_BY_ERROR:
       return{
         ...state,
-        counrties: {
+        countries: {
           data: false,
           loaded: false,
           error: action.payload,
@@ -55,8 +55,8 @@ const countiesList = (state = initialState, action) => {
     case  HIDE_ALL_COUNTRIES:
       return{
         ...state,
-        counrties: {
-          data: state.counrties.data,
+        countries: {
+          data: state.countries.data,
           loaded: false,
           error: false,
           show: false
@@ -65,8 +65,8 @@ const countiesList = (state = initialState, action) => {
     case  SHOW_ALL_COUNTRIES:
       return{
         ...state,
-        counrties: {
-          data: state.counrties.data,
+        countries: {
+          data: state.countries.data,
           loaded: false,
           error: false,
           show: true
@@ -80,7 +80,7 @@ const countiesList = (state = initialState, action) => {
       case FIND_COUNTRY_LINK:
         return{
           ...state,
-          counrties: {
+          countries: {
             data: false,
             loaded: true,
             error: false,
@@ -90,7 +90,7 @@ const countiesList = (state = initialState, action) => {
       case FIND_COUNTRY_SUCCESS:
         return{
           ...state,
-          counrties: {
+          countries: {
             data: action.payload,
             loaded: false,
             error: false,
@@ -100,7 +100,7 @@ const countiesList = (state = initialState, action) => {
       case FIND_COUNTRY_ERROR:
         return{
           ...state,
-          counrties: {
+          countries: {
             data: false,
             loaded: false,
             error: action.payload,
@@ -112,4 +112,4 @@ const countiesList = (state = initialState, action) => {
   }
 }
 
-export default countiesList;
+export default countriesList;

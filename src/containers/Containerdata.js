@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getCountryFunc, hideCountryFunc, showCountryFunc} from '../actions/importApi';
 import CounrtiesList from '../components/CounrtiesList/CounrtiesList';
-import { countiesList } from '../reducers';
+import { countriesList } from '../reducers';
 
 
-const CountryContainer = ({ hideCountry,countiesList, getCountry, showCountry }) => (
+const CountryContainer = ({ hideCountry,countries, getCountry, showCountry }) => (
   <CounrtiesList
-      countiesList={countiesList}
+      countries={countries}
       getCountry={getCountry}
       hideCountry={hideCountry}
       showCountry={showCountry}
@@ -15,7 +15,7 @@ const CountryContainer = ({ hideCountry,countiesList, getCountry, showCountry })
 
 )
 const mapStateToProps= (state) => ({
-  countiesList: state.countiesList
+  countries: state.countriesList.countries
 })
 const mapDispatchToProps = dispatch => {
     return {

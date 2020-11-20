@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import countiesList from './importdataReducer';
+import countriesList from './importdataReducer';
 
 
 export default combineReducers({
-  countiesList,
+  countriesList,
 })

@@ -19,8 +19,8 @@ class HendleFindCountrie extends React.Component{
     e.preventDefault();
     const link = 'https://restcountries.eu/rest/v2/name/';
 
-    if(this.props.countiesList.findingData !== ''){
-      let newUrl = this.props.countiesList.findingData;
+    if(this.props.countriesList.findingData !== ''){
+      let newUrl = this.props.countriesList.findingData;
 
       newUrl= newUrl[0].toUpperCase() + newUrl.slice(1).toLowerCase();
       newUrl = link + newUrl;
@@ -37,7 +37,7 @@ class HendleFindCountrie extends React.Component{
     return(
       <div className='countries-list-main-block'>
         <form className='countries-list-main-block-block' onSubmit={this.findCountry}>
-          <input className='countries-list-main-block-input' onChange={ this.trigerData} value={this.props.findingData} type="text" placeholder='Enter name of country'/>
+          <input className='countries-list-main-block-input' onChange={ this.trigerData} value={this.props.countriesList.findingData} type="text" placeholder='Enter name of country'/>
           <button className='countries-list-main-block-btn btn'>Find Country</button>
         </form>
       </div> 

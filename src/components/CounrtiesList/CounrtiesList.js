@@ -53,9 +53,9 @@ class CounrtiesList extends React.Component{
   }
 
   showCountries(){
-    if(this.props.countiesList.counrties.show && this.props.countiesList.counrties.data){
+    if(this.props.countries.show && this.props.countries.data){
       return(
-        this.props.countiesList.counrties.data.map( item => {
+        this.props.countries.data.map( item => {
           return(
             <li key = {uuidv4()} className='countries-list-main-ul-li'>
               <div className='countries-list-main-ul-li-info'>
@@ -74,7 +74,7 @@ class CounrtiesList extends React.Component{
   render(){
     return(
       <div className='countries-list-main'>
-        { this.props.countiesList.counrties.show ? 
+        { this.props.countries.show ? 
           <button onClick={this.props.hideCountry} className='btn countries-list-main-btn'>Hide Countries</button>:
           <button onClick={this.props.showCountry} className='btn countries-list-main-btn'>Show Countries</button>
         }
