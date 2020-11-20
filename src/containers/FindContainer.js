@@ -2,19 +2,20 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { sendFindingTextFunc, getNewCountryFunc } from '../actions/findCountriesAction';
 import HendleFindCountrie from '../components/find/FindComponent';
-import { findingCounry } from '../reducers';
+import { countiesList, findingData } from '../reducers';
 
 
-const FindCountryContainer = ({ findingCounry, sendFindingText, getNewCountry }) => (
+const FindCountryContainer = ({ findingData, countiesList, sendFindingText, getNewCountry }) => (
   <HendleFindCountrie
-    findingCounry={findingCounry}
+    findingData={findingData}
+    countiesList={countiesList}
     sendFindingText={sendFindingText}
     getNewCountry={getNewCountry}
   />
 
 )
 const mapStateToProps= (state) => ({
-  findingCounry: state.findingCounry
+  countiesList: state.countiesList
 })
 const mapDispatchToProps = dispatch => {
     return {

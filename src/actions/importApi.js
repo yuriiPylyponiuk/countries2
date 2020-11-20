@@ -4,6 +4,10 @@ import {
   GET_POST_BY_ERROR,
   HIDE_ALL_COUNTRIES,
   SHOW_ALL_COUNTRIES,
+  SEND_FINDING_TEXT,
+  FIND_COUNTRY_LINK,
+  FIND_COUNTRY_SUCCESS,
+  FIND_COUNTRY_ERROR
 } from '../constants/ActionTypes';
 import {
   getCounties
@@ -34,7 +38,30 @@ const showCountry = async dispatch => {
 
 
 
+///////
 
+export function sendFindingTextFunc(data){
+  return{ type: SEND_FINDING_TEXT, payload: data}
+}
+
+let getNewCounties = (data) => fetch(data)
+
+const getNewCountry = async (dispatch, data) => {
+  dispatch({ type:  FIND_COUNTRY_LINK });
+  try {
+      const response = await getNewCounties(data);
+      const res = await response.json();
+      dispatch({ type: FIND_COUNTRY_SUCCESS, payload: res });
+  } catch (e) {
+      dispatch({ type: FIND_COUNTRY_ERROR, payload: e });
+  }
+};
+
+export const getNewCountryFunc = (dispatch, data) => {
+  return (data) => getNewCountry(data, dispatch);
+}
+
+//////
 
 
 export const getCountryFunc = dispatch => {

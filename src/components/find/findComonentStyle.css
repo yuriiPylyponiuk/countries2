@@ -1,0 +1,12 @@
+.countries-list-main-block-input, .countries-list-main-block-btn{
+  font-size: 18px;
+  padding: 8px 10px;
+}
+.countries-list-main-block .countries-list-main-block-btn{
+  display: inline-block;
+  background-color: transparent;
+}
+.countries-list-main-block{
+  display: flex;
+  justify-content: center;
+}

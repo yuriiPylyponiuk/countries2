@@ -3,7 +3,11 @@ import {
   GET_POST_BY_SUCCESS,
   GET_POST_BY_ERROR,
   HIDE_ALL_COUNTRIES,
-  SHOW_ALL_COUNTRIES
+  SHOW_ALL_COUNTRIES,
+  SEND_FINDING_TEXT,
+  FIND_COUNTRY_LINK,
+  FIND_COUNTRY_SUCCESS,
+  FIND_COUNTRY_ERROR,
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -13,6 +17,7 @@ const initialState = {
     error: false,
     show: false
   },
+  findingData: ''
 }
 
 const countiesList = (state = initialState, action) => {
@@ -67,6 +72,41 @@ const countiesList = (state = initialState, action) => {
           show: true
         }
       }
+      case SEND_FINDING_TEXT:
+        return{
+          ...state,
+          findingData: action.payload
+        }
+      case FIND_COUNTRY_LINK:
+        return{
+          ...state,
+          counrties: {
+            data: false,
+            loaded: true,
+            error: false,
+            show: false
+          }
+        }
+      case FIND_COUNTRY_SUCCESS:
+        return{
+          ...state,
+          counrties: {
+            data: action.payload,
+            loaded: false,
+            error: false,
+            show: true
+          }
+        }
+      case FIND_COUNTRY_ERROR:
+        return{
+          ...state,
+          counrties: {
+            data: false,
+            loaded: false,
+            error: action.payload,
+            show: false
+          }
+        }
     default: 
       return state;
   }
