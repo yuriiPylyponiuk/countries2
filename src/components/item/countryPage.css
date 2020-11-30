@@ -1,0 +1,9 @@
+.coumties-back{
+  position: fixed;
+  top: 15px;
+  background: transparent;
+  left: 40px;
+}
+.countries-list-main-ul-li.country-list-ul{
+  margin-top: 70px;
+}

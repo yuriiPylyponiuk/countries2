@@ -3,7 +3,7 @@ import CountryContainer from '../../containers/Containerdata';
 import Home from '../Home/Home';
 import { Switch, Route, Link } from "react-router-dom";
 import './app.css';
-
+import NewCountryPage from '../../containers/CountryPageContainer';
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
         <Route exact path="/countries">
           <CountryContainer />
         </Route>
+        <Route path="/countries/:item" component={NewCountryPage} />
       </Switch>
     </div>
   );

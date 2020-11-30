@@ -2,6 +2,8 @@ import React from 'react';
 import './countriesList.css';
 import  { v4 as uuidv4 } from 'uuid';
 import FindCountryContainer from '../../containers/FindContainer';
+import { Link, useParams } from "react-router-dom";
+import CountryPage from '../item/countryPage';
 
 class CounrtiesList extends React.Component{
   constructor(props){
@@ -57,13 +59,15 @@ class CounrtiesList extends React.Component{
       return(
         this.props.countries.data.map( item => {
           return(
-            <li key = {uuidv4()} className='countries-list-main-ul-li'>
-              <div className='countries-list-main-ul-li-info'>
-                <h3>{item.name}</h3>
-                <p>Capital: {this.createCapital(item)}</p>
-                <p>Population: {this.createMilionPeople(item)}</p>
-              </div>
-              <a href="" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
+            <li key = {uuidv4()} className='countries-list-main-ul-li' >
+              <Link  to={{ pathname: `/countries/${item.name}`}} params={{item:item}}>
+                <div className='countries-list-main-ul-li-info'>
+                  <h3>{item.name}</h3>
+                  <p>Capital: {this.createCapital(item)}</p>
+                  <p>Population: {this.createMilionPeople(item)}</p>
+                </div>
+                <a href="#" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
+              </Link>
             </li>
           )
         })
