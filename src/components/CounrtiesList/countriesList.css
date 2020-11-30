@@ -38,3 +38,11 @@
   width: 100%;
   height: 100%;
 }
+
+.linkToCountry{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px;
+  align-items: center;
+}

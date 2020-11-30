@@ -60,7 +60,7 @@ class CounrtiesList extends React.Component{
         this.props.countries.data.map( item => {
           return(
             <li key = {uuidv4()} className='countries-list-main-ul-li' >
-              <Link  to={{ pathname: `/countries/${item.name}`}} params={{item:item}}>
+              <Link  to={{ pathname: `/countries/${item.name}`}} params={{item:item}} className='linkToCountry'>
                 <div className='countries-list-main-ul-li-info'>
                   <h3>{item.name}</h3>
                   <p>Capital: {this.createCapital(item)}</p>
