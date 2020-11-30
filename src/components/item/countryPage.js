@@ -7,6 +7,8 @@ class CountryPage extends React.Component{
   constructor(props){
     super(props);
     this.showCountries = this.showCountries.bind(this);
+    this.createMilionPeople = this.createMilionPeople.bind(this);
+    this.createCapital = this.createCapital.bind(this);
   }
   componentDidMount(){
     const link = 'https://restcountries.eu/rest/v2/name/';
@@ -16,6 +18,42 @@ class CountryPage extends React.Component{
     newUrl = link + newUrl;
     this.props.getNewCountry(newUrl)
   }
+  createMilionPeople(item){
+    const MILIONNUM = 1000000;
+    const THOUSANDNUM = 1000;
+    let number = item.population;
+    let thousands, milions;
+    let milStr='', thouStr='';
+
+    milions= number/MILIONNUM;
+    milions= +milions.toFixed();
+    if(milions> 0){
+      milStr = ` ${milions},`
+    }
+
+    number = number % MILIONNUM;
+    thousands = number/THOUSANDNUM;
+    thousands= +thousands.toFixed();
+    if(thousands> 0){
+      thouStr = `${thousands},`;
+    }
+    
+    number = number % THOUSANDNUM;
+
+    let finalStr = milStr+thouStr+number
+    return ( <span>{finalStr}</span> )
+  }
+  createCapital(item){
+    if(Array.isArray(item.capital)){
+      return 'More than 1 capital'
+    }else{
+      if(item.capital){
+        return item.capital
+      }else{
+        return 'Country havent capitel'
+      }
+    }
+  }
   showCountries(){
     if(this.props.countriesList.countries.show && this.props.countriesList.countries.data){
       return(
@@ -24,6 +62,16 @@ class CountryPage extends React.Component{
             <li key = {uuidv4()} className='countries-list-main-ul-li country-list-ul' >
               <div className='countries-list-main-ul-li-info'>
                 <h3>{item.name}</h3>
+                <p>Capital: {this.createCapital(item)}</p>
+                <p>Population: {this.createMilionPeople(item)}</p>
+                <p>Native Name: {item.nativeName}</p>
+                <ul>
+                  {item.regionalBlocs.map((item2) => {
+                   for(let key in item2){
+                     <li>{item2[key]}</li>
+                   }
+                  })}
+                </ul>
               </div>
               <a href="#" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
             </li>

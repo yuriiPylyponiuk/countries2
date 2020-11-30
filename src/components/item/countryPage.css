@@ -5,5 +5,16 @@
   left: 40px;
 }
 .countries-list-main-ul-li.country-list-ul{
+  margin: auto;
   margin-top: 70px;
+  width: calc(100% - 20px);
+}
+.coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li {
+  min-height: calc(100vh - 120px);
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+.coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li .countries-list-main-ul-li-img{
+  width: 400px;
+  height: auto;
 }
