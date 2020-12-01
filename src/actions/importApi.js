@@ -7,7 +7,8 @@ import {
   SEND_FINDING_TEXT,
   FIND_COUNTRY_LINK,
   FIND_COUNTRY_SUCCESS,
-  FIND_COUNTRY_ERROR
+  FIND_COUNTRY_ERROR,
+  LOAD_MORE_COUNTRIES
 } from '../constants/ActionTypes';
 import {
   getCounties
@@ -34,6 +35,9 @@ const hideCountry = async dispatch => {
 };
 const showCountry = async dispatch => {
   dispatch({ type:  SHOW_ALL_COUNTRIES });
+};
+const loadMoreCountries = async dispatch => {
+  dispatch({ type:  LOAD_MORE_COUNTRIES });
 };
 
 
@@ -63,7 +67,9 @@ export const getNewCountryFunc = (dispatch, data) => {
 
 //////
 
-
+export const loadMoreCountriesFunc = dispatch => {
+  return () => loadMoreCountries(dispatch);
+}
 export const getCountryFunc = dispatch => {
   return () => getCountry(dispatch);
 }

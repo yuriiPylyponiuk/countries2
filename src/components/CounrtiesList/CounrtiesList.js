@@ -55,27 +55,33 @@ class CounrtiesList extends React.Component{
   }
 
   showCountries(){
-    if(this.props.countries.show && this.props.countries.data){
-      return(
-        this.props.countries.data.map( item => {
-          return(
-            <li key = {uuidv4()} className='countries-list-main-ul-li' >
-              <Link  to={{ pathname: `/countries/${item.name}`}} params={{item:item}} className='linkToCountry'>
-                <div className='countries-list-main-ul-li-info'>
-                  <h3>{item.name}</h3>
-                  <p>Capital: {this.createCapital(item)}</p>
-                  <p>Population: {this.createMilionPeople(item)}</p>
-                </div>
-                <a href="#" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
-              </Link>
-            </li>
-          )
-        })
-      )
+    if(this.props.countries.show ){
+      if(this.props.countries.data.length> 0){
+        return(
+          this.props.countries.data.map( (item, index) => {
+            if(index < this.props.loadMore){
+              return(
+                <li key = {uuidv4()} className='countries-list-main-ul-li' >
+                  <Link  to={{ pathname: `/countries/${item.name}`}} params={{item:item}} className='linkToCountry'>
+                    <div className='countries-list-main-ul-li-info'>
+                      <h3>{item.name}</h3>
+                      <p>Capital: {this.createCapital(item)}</p>
+                      <p>Population: {this.createMilionPeople(item)}</p>
+                    </div>
+                    <a href="#" className='countries-list-main-ul-li-img'><img src={item.flag} alt=""/></a>
+                  </Link>
+                </li>
+              )
+            }
+          })
+        )
+
+      }
     }
   }
 
   render(){
+    console.log(this.props)
     return(
       <div className='countries-list-main'>
         { this.props.countries.show ? 
@@ -86,6 +92,12 @@ class CounrtiesList extends React.Component{
         <ul className='countries-list-main-ul'>
           {this.showCountries()}  
         </ul>
+        <div className="addNextPage">
+          { this.props.findingData ?
+            <p></p>:
+            <button onClick={this.props.loadMoreCountries} className='btn'>Load More...</button>
+          }
+        </div>
       </div>
     )
   }

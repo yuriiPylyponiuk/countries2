@@ -8,6 +8,7 @@ import {
   FIND_COUNTRY_LINK,
   FIND_COUNTRY_SUCCESS,
   FIND_COUNTRY_ERROR,
+  LOAD_MORE_COUNTRIES
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
     error: false,
     show: false
   },
-  findingData: ''
+  findingData: '',
+  loadMore: 12
 }
 
 const countriesList = (state = initialState, action) => {
@@ -71,6 +73,11 @@ const countriesList = (state = initialState, action) => {
           error: false,
           show: true
         }
+      }
+      case  LOAD_MORE_COUNTRIES:
+      return{
+        ...state,
+        loadMore: state.loadMore + 12,
       }
       case SEND_FINDING_TEXT:
         return{

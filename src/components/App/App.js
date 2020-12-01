@@ -4,6 +4,8 @@ import Home from '../Home/Home';
 import { Switch, Route, Link } from "react-router-dom";
 import './app.css';
 import NewCountryPage from '../../containers/CountryPageContainer';
+import Footer from '../footer/Fotter';
+ 
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
         </Route>
         <Route path="/countries/:item" component={NewCountryPage} />
       </Switch>
+      <Footer />
     </div>
   );
 }
