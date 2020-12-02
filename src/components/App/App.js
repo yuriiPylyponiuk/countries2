@@ -5,7 +5,8 @@ import { Switch, Route, Link } from "react-router-dom";
 import './app.css';
 import NewCountryPage from '../../containers/CountryPageContainer';
 import Footer from '../footer/Fotter';
- 
+import CreateNewForm from '../form/Form';
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,9 @@ function App() {
           <CountryContainer />
         </Route>
         <Route path="/countries/:item" component={NewCountryPage} />
+        <Route exact path='/form'>
+          <CreateNewForm />
+        </Route>
       </Switch>
       <Footer />
     </div>
