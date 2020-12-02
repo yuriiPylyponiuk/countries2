@@ -1,5 +1,6 @@
 import React from "react";
 import './form.css';
+import { Link } from "react-router-dom";
 
 class CreateNewForm extends React.Component{
 	constructor(props){
@@ -43,7 +44,7 @@ class CreateNewForm extends React.Component{
 							<span>Keep me sign in</span>		
 						</label>
 					</div>
-					<input  className='form--inputSubmit-style' type="submit" value='Sign in' />
+					<Link to = {"/countries"} className='form--inputSubmit-style-a' ><input  className='form--inputSubmit-style' type="submit" value='Sign in' /></Link>
 					<a href="https://google.com" target='blanck' >Forgot your password?</a>
 				</form>
 			</div>

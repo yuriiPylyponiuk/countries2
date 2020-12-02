@@ -12,9 +12,9 @@ class Footer extends React.Component{
 					<h3>Yurii Pylyponiuk</h3>
 				</div>
 				<div className="block-contacts">
-					<a href="" className='linkFacebook'><img src={facebook} alt="logo"/></a>
-					<a href="" className='linkLinkedin'><img src={linkedin} alt="logo"/></a>
-					<a href="" className='linkInstagram'><img src={instagram} alt="logo"/></a>
+					<a href="https://www.facebook.com/" className='linkFacebook'><img src={facebook} alt="logo"/></a>
+					<a href="https://www.linkedin.com/in/yurii-pylyponiuk/" className='linkLinkedin'><img src={linkedin} alt="logo"/></a>
+					<a href="https://www.instagram.com/" className='linkInstagram'><img src={instagram} alt="logo"/></a>
 				</div>
 			</footer>
 		)
