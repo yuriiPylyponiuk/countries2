@@ -6,6 +6,9 @@ class Home extends React.Component{
   constructor(props){
     super(props)
   }
+  componentDidMount() {
+    document.title = 'Finder';
+  }
   render(){
     return(
       <div className='home-page'>
