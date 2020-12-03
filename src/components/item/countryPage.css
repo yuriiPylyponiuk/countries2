@@ -18,15 +18,21 @@
   height: auto;
 }
 .Countries-item .coumties-back {
-  width: calc(100% - 40px);
+  width: auto;
+  margin-left: 20px;
+  display: inline-block;
   box-sizing: border-box;
-  margin: 70px auto 0 auto;
 }
 
 @media screen and (max-width: 600px){
   .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li .countries-list-main-ul-li-img {
     width: calc(100%);
     height: auto;
+  }
+  .Countries-item .coumties-back {
+    width: calc(100% - 40px);
+    margin: 70px auto 0 auto;
+    display: flex;
   }
   .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li{
     display: flex;
