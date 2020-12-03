@@ -34,6 +34,12 @@ class CounrtiesList extends React.Component{
     }
     
     number = number % THOUSANDNUM;
+    if(number<100){
+      number = `0${number}`;
+      if(number<10){
+        number = `0${number}`;
+      }
+    }
 
     let finalStr = milStr+thouStr+number
     return ( <span>{finalStr}</span> )

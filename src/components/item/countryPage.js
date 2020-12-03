@@ -61,10 +61,14 @@ class CountryPage extends React.Component{
           return(
             <li key = {uuidv4()} className='countries-list-main-ul-li country-list-ul' >
               <div className='countries-list-main-ul-li-info'>
-                <h3>{item.name}</h3>
-                <p>Capital: {this.createCapital(item)}</p>
-                <p>Population: {this.createMilionPeople(item)}</p>
+                <h2>{item.name}</h2>
+                <h3>Capital: {this.createCapital(item)}</h3>
+                <h3>Population: {this.createMilionPeople(item)}</h3>
+                {item.regionalBlocs.length > 0 && 
+                  <p>RegionalBlocs: {item.regionalBlocs[0].name}</p>}
+                <p>Currencies: {item.currencies[0].name}</p>
                 <p>Native Name: {item.nativeName}</p>
+                <p>Languages: {item.languages[0].name}  <br /> Native language name: {item.languages[0].nativeName}</p>
                 <ul>
                   {item.regionalBlocs.map((item2) => {
                    for(let key in item2){
