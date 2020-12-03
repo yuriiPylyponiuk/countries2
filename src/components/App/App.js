@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <div className="app-btn-main">
-        <Link to={"/home"} className=' btn' >Home</Link>
+        <Link to={"/"} className=' btn' >Home</Link>
         <Link to={"/form"} className=' btn btn-signup' >Sign up</Link>
       </div>
       <Switch>
-        <Route exact path="/home" >
+        <Route exact path="/" >
           <Home />
         </Route>
         <Route exact path="/countries">
