@@ -11,11 +11,12 @@ import LogIn from '../form/FormLOg';
 function App() {
   return (
     <div className="App">
-      <Link to={"/"} className='app-btn-main btn' >Home</Link>
-      <Link to={"/form"} className='app-btn-main btn btn-signup' >Sign up</Link>
-      <Link to={"/login"} className='app-btn-main btn btn-log' >Log in</Link>
+      <div className="app-btn-main">
+        <Link to={"/home"} className=' btn' >Home</Link>
+        <Link to={"/form"} className=' btn btn-signup' >Sign up</Link>
+      </div>
       <Switch>
-        <Route exact path="/" >
+        <Route exact path="/home" >
           <Home />
         </Route>
         <Route exact path="/countries">

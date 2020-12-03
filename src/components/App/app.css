@@ -16,6 +16,11 @@
   position: fixed;
   top: 15px;
   right: 40px;
+  display: flex;
+  justify-content: center;
+}
+.app-btn-main .btn{
+  margin-left: 10px;
 }
 .btn-signup{
   right: 120px;

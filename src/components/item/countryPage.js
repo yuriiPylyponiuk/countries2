@@ -82,7 +82,7 @@ class CountryPage extends React.Component{
   }
   render(){
     return(
-      <div>
+      <div className='Countries-item'>
         <Link to={"/countries"} className='coumties-back btn' >Back</Link>
         <ul className='countries-list-main-ul'>
             {this.showCountries()}  

@@ -1,16 +1,12 @@
 .coumties-back{
-  position: fixed;
-  top: 15px;
-  background: transparent;
-  left: 40px;
+  margin-top: 80px;
 }
 .countries-list-main-ul-li.country-list-ul{
   margin: auto;
-  margin-top: 70px;
   width: calc(100% - 40px);
 }
 .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 220px);
   box-sizing: border-box;
   justify-content: space-around;
 }
@@ -20,4 +16,20 @@
 .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li .countries-list-main-ul-li-img{
   width: 400px;
   height: auto;
+}
+.Countries-item .coumties-back {
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  margin: 70px auto 0 auto;
+}
+
+@media screen and (max-width: 600px){
+  .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li .countries-list-main-ul-li-img {
+    width: calc(100%);
+    height: auto;
+  }
+  .coumties-back ~ .countries-list-main-ul .countries-list-main-ul-li{
+    display: flex;
+    flex-flow: column-reverse;
+  }
 }

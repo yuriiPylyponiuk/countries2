@@ -2,7 +2,7 @@
   height: calc( 100vh - 160px);
   overflow: overlay;
   margin: 60px 0 0 0;
-  padding: 0 40px;
+  padding: 0 40px 30px 40px;
 }
 
 .countries-list-main-btn{
@@ -28,6 +28,10 @@
   border-radius: 5px;
   height: fit-content;
   transition: .5s;
+}
+.linkToCountry{
+  text-decoration: none;
+  color: #000000;
 }
 .countries-list-main-ul-li:hover{
   transform: scale(1.02);
@@ -73,4 +77,51 @@
   .countries-list-main-ul-li{
     width: 100%;
   }
+}
+
+@media screen and (max-width: 600px){
+  .countries-list-main{
+    padding: 0 20px;
+  }
+  .linkToCountry{
+    padding: 0;
+  }
+  .home-page-link-title{
+    font-size: 19px;
+  }
+  .App footer {
+    margin-top: 0;
+  }
+  .App .home-page {
+    min-height: calc(100vh - 65px);
+  }
+  .App .addNextPage .btn{
+    margin-bottom: 30px;
+  }
+  .countries-list-main-btn{
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .countries-list-main-block-block{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .countries-list-main-block-block > *{
+    margin-bottom: 5px;
+  }
+  .App .app-btn-main {
+    width: 100%;
+    top: 15px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .app-btn-main .btn{
+    margin: 0 10px
+  }
+  
 }

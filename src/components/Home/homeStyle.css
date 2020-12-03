@@ -1,8 +1,9 @@
 .home-page{
   width: 100%;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 65px);
   background-image: url('../../assets/planet.jpg');
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -79,3 +79,8 @@
     text-decoration: underline;
     opacity: 1;
   }
+@media screen and (max-width: 600px){
+  .form{
+    width: auto;
+  }
+}

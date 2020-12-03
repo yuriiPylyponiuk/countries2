@@ -4,7 +4,6 @@ footer{
     justify-content: space-around;
     align-items: center;
     border-top: 2px solid #ffffff;
-    margin-top: 30px;
 }
 .block-contacts{
     display: flex;
